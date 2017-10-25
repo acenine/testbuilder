@@ -13,25 +13,30 @@ var detectNetwork = function(cardNumber) {
   // The American Express network always starts with a 34 or 37 and is 15 digits long
 
   // Once you've read this, go ahead and try to implement this function, then return to the console.
-  var prefix = cardNumber.slice(0, 2);
-  var longpfx = cardNumber.slice(0, 4);
+  var prefix2 = cardNumber.slice(0, 2);
+  var prefix4 = cardNumber.slice(0, 4);
+  var prefix6 = cardNumber.slice(0, 6);
   var numLength = cardNumber.length;
-  if (numLength === 14 && (prefix === "38" || prefix === "39")) {
+
+  if (((prefix6 >= 622126 && prefix6 <= 622925) || (prefix4 >= 6240 && prefix4 <= 6260) || (prefix4 >= 6282 && prefix4 <= 6288)) && (numLength >= 16 && numLength <= 19)) {
+  	return "China UnionPay"
+  };
+  if (numLength === 14 && (prefix2 === "38" || prefix2 === "39")) {
   	return "Diner's Club"
   };
-  if (numLength === 15 && (prefix === "34" || prefix === "37")) {
+  if (numLength === 15 && (prefix2 === "34" || prefix2 === "37")) {
   	return "American Express"
   };
-  if ([13, 16, 19].includes(numLength) && prefix[0] === '4') {
+  if ([13, 16, 19].includes(numLength) && prefix2[0] === '4') {
   	return "Visa"
   };
-  if (["51", "52", "53", "54", "55"].includes(prefix) && numLength === 16) {
+  if (["51", "52", "53", "54", "55"].includes(prefix2) && numLength === 16) {
   	return "MasterCard"
   };
-  if ((longpfx === "6011" || (longpfx >= 6440 && longpfx < 6600)) && (numLength === 16 || numLength === 19)) {
+  if ((prefix4 === "6011" || (prefix4 >= 6440 && prefix4 < 6600)) && (numLength === 16 || numLength === 19)) {
   	return "Discover"
   };
-  if (["5018", "5020", "5038", "6304"].includes(longpfx) && (numLength >= 12 && numLength <= 19)) {
+  if (["5018", "5020", "5038", "6304"].includes(prefix4) && (numLength >= 12 && numLength <= 19)) {
   	return "Maestro"
   };
 };
