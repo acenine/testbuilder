@@ -14,13 +14,16 @@ var detectNetwork = function(cardNumber) {
 
   // Once you've read this, go ahead and try to implement this function, then return to the console.
   var prefix = cardNumber.slice(0, 2);
-  if (cardNumber.length === 14 && (prefix === "38" || prefix === "39")) {
+  var numLength = cardNumber.length;
+  if (numLength === 14 && (prefix === "38" || prefix === "39")) {
   	return "Diner's Club"
-  }
-  if (cardNumber.length === 15 && (prefix === "34" || prefix === "37")) {
+  };
+  if (numLength === 15 && (prefix === "34" || prefix === "37")) {
   	return "American Express"
-  }
-
+  };
+  if ([13, 14, 19].includes(numLenght) && prefix[0] === 4) {
+  	return "Visa"
+  };
 };
 
 
