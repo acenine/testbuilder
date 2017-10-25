@@ -24,6 +24,9 @@ var detectNetwork = function(cardNumber) {
   if ([13, 14, 19].includes(numLength) && prefix[0] === '4') {
   	return "Visa"
   };
+  if (["51", "52", "53", "54", "55"].includes(prefix) && numLength === 16) {
+  	return "MasterCard"
+  };
 };
 
 
