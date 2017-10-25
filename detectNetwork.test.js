@@ -6,7 +6,7 @@
 // You don't actually want to fill *this* value in on line 9, but you'll see
 // other places in this file where you'll replace the FILL_ME_IN with a
 // different value.
-var FILL_ME_IN = 'Fill this value in';
+var FILL_ME_IN = assert;
  
  /*
 describe('Introduction to Mocha Tests - READ ME FIRST', function() {
@@ -88,15 +88,15 @@ describe('Visa', function() {
  
 
   it('has a prefix of 4 and a length of 13', function() {
-    assert(detectNetwork('4123456789012') === 'Visa');
+    assert(detectNetwork('4123456789012'), 'Visa');
   });
 
   it('has a prefix of 4 and a length of 16', function() {
-    assert(detectNetwork('4123456789012345') === 'Visa');
+    assert(detectNetwork('4123456789012345'), 'Visa');
   });
 
   it('has a prefix of 4 and a length of 19', function() {
-    assert(detectNetwork('4123456789012345678') === 'Visa');
+    assert(detectNetwork('4123456789012345678'), 'Visa');
   });
 });
 
