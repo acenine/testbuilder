@@ -14,6 +14,7 @@ var detectNetwork = function(cardNumber) {
 
   // Once you've read this, go ahead and try to implement this function, then return to the console.
   var prefix = cardNumber.slice(0, 2);
+  var longpfx = cardNumber.slice(0, 4);
   var numLength = cardNumber.length;
   if (numLength === 14 && (prefix === "38" || prefix === "39")) {
   	return "Diner's Club"
@@ -26,6 +27,9 @@ var detectNetwork = function(cardNumber) {
   };
   if (["51", "52", "53", "54", "55"].includes(prefix) && numLength === 16) {
   	return "MasterCard"
+  };
+  if ((longpfx === "6011" || (longpfx >= 6440 && longpfx < 6600)) && (numLength === 16 || numLength === 19)) {
+  	return "Discover"
   };
 };
 
