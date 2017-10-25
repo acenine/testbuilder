@@ -31,6 +31,9 @@ var detectNetwork = function(cardNumber) {
   if ((longpfx === "6011" || (longpfx >= 6440 && longpfx < 6600)) && (numLength === 16 || numLength === 19)) {
   	return "Discover"
   };
+  if (["5018", "5020", "5038", "6304"].includes(longpfx) && (numLength >= 12 && numLength <= 19)) {
+  	return "Maestro"
+  };
 };
 
 
