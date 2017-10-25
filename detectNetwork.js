@@ -21,6 +21,9 @@ var detectNetwork = function(cardNumber) {
   if (((prefix6 >= 622126 && prefix6 <= 622925) || (prefix4 >= 6240 && prefix4 <= 6260) || (prefix4 >= 6282 && prefix4 <= 6288)) && (numLength >= 16 && numLength <= 19)) {
   	return "China UnionPay"
   };
+  if ((["4903", "4905", "4911", "6333", "6759"].includes(prefix4) || prefix6 === "564182" || prefix6 === "633110") && (numLength === 16 || numLength === 18 || numLength === 19)) {
+  	return "Switch"
+  };
   if (numLength === 14 && (prefix2 === "38" || prefix2 === "39")) {
   	return "Diner's Club"
   };
