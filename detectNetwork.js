@@ -21,7 +21,7 @@ var detectNetwork = function(cardNumber) {
   if (numLength === 15 && (prefix === "34" || prefix === "37")) {
   	return "American Express"
   };
-  if ([13, 14, 19].includes(numLenght) && prefix[0] === 4) {
+  if ([13, 14, 19].includes(numLength) && prefix[0] === 4) {
   	return "Visa"
   };
 };
