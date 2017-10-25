@@ -17,6 +17,10 @@ var detectNetwork = function(cardNumber) {
   if (cardNumber.length === 14 && (prefix === "38" || prefix === "39")) {
   	return "Diner's Club"
   }
+  if (cardNumber.length === 15 && (prefix === "34" || prefix === "37")) {
+  	return "American Express"
+  }
+
 };
 
 
