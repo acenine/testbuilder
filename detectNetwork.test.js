@@ -224,7 +224,8 @@ describe('China UnionPay', function() {
 describe('Switch', function() {
   var should = chai.should();
   var append = "123456789012345"
-  for (var length = 16; length <= 19 && length !== 17; length++) {
+  lengths = [16, 18, 19]
+  for (var i = 0; i < lengths.length ; i++) {
     (function(length) {
       it('has a prefix of 4903 and a length of ' + length, function() {
         detectNetwork(('4903' + append).slice(0, length)).should.equal('Switch')
@@ -250,6 +251,6 @@ describe('Switch', function() {
       it('has a prefix of 6759 and a length of ' + length, function() {
         detectNetwork(('6759' + append).slice(0, length)).should.equal('Switch')
       });
-    })(length)
+    })(lengths[i])
   }
 });
